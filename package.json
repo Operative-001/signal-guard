@@ -8,5 +8,20 @@
   },
   "bin": {
     "signal-guard": "./src/cli.js"
-  }
+  },
+  "description": "AI-powered content triage for ops communities — detect slop, score trust, surface what matters",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Operative-001/signal-guard.git"
+  },
+  "license": "MIT",
+  "author": "Operative-001",
+  "keywords": [
+    "moderation",
+    "trust-and-safety",
+    "ai-governance",
+    "community-ops",
+    "triage",
+    "automation"
+  ]
 }

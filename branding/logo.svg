@@ -1,0 +1,31 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="64" x2="448" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="256" y1="120" x2="256" y2="404" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+    <linearGradient id="pulse" x1="154" y1="256" x2="358" y2="256" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="48" y="48" width="416" height="416" rx="96" fill="url(#bg)"/>
+
+  <!-- Shield -->
+  <path d="M256 112L358 150V236C358 315 316 371 256 402C196 371 154 315 154 236V150L256 112Z" fill="url(#shield)" fill-opacity="0.18" stroke="url(#shield)" stroke-width="14"/>
+
+  <!-- Eye/monitor ring -->
+  <ellipse cx="256" cy="250" rx="84" ry="54" stroke="#67E8F9" stroke-width="12" fill="#0B1220" fill-opacity="0.45"/>
+  <circle cx="256" cy="250" r="20" fill="#22D3EE"/>
+
+  <!-- Signal pulse line -->
+  <path d="M154 306H204L224 270L246 322L274 236L296 286H358" stroke="url(#pulse)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- SG monogram hint -->
+  <path d="M196 186C206 172 224 164 246 164C272 164 290 176 290 194C290 214 268 222 242 226C217 230 206 236 206 248C206 260 220 268 242 268C262 268 278 262 288 252" stroke="#C4B5FD" stroke-width="8" stroke-linecap="round"/>
+</svg>

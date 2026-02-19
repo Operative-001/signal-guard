@@ -9,6 +9,8 @@ import { scoreContent } from './scoring.js';
 const PORT = Number(process.env.PORT || 8787);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+function isNonEmptyString(v){ return typeof v === 'string' && v.trim().length > 0; }
+
 function json(res, code, obj){ res.writeHead(code, {'content-type':'application/json'}); res.end(JSON.stringify(obj)); }
 async function body(req){
   const chunks=[]; for await (const c of req) chunks.push(c);
@@ -30,6 +32,7 @@ const server = http.createServer(async (req,res)=>{
 
     if (req.method === 'POST' && u.pathname === '/ingest/discord') {
       const b = await body(req);
+      if (!isNonEmptyString(b.content)) return json(res,400,{error:'content is required'});
       const item = {
         id: id('itm'), source: 'discord', source_id: String(b.id || id('src')),
         community_id: String(b.community_id || 'default'), author_id: String(b.author_id || 'unknown'),
@@ -74,7 +77,10 @@ const server = http.createServer(async (req,res)=>{
       const b = await body(req);
       const item = db.items.find(i=>i.id===b.item_id);
       if (!item) return json(res,404,{error:'item not found'});
-      const d = { item_id:item.id, reviewer_id:String(b.reviewer_id||'reviewer'), decision:String(b.decision||'escalate'), rationale:String(b.rationale||''), decided_at: nowIso() };
+      const allowed = new Set(['approve','reject','escalate','request-info']);
+      const decision = String(b.decision||'').trim();
+      if (!allowed.has(decision)) return json(res,400,{error:'invalid decision'});
+      const d = { item_id:item.id, reviewer_id:String(b.reviewer_id||'reviewer'), decision, rationale:String(b.rationale||''), decided_at: nowIso() };
       db.decisions.push(d); item.status = d.decision;
       logAudit('ReviewDecision', item.id, 'decided', d.reviewer_id, { decision: d.decision });
       return json(res,200,d);
