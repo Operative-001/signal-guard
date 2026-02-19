@@ -1,17 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="guard" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#10b981"/>
-      <stop offset="100%" style="stop-color:#059669"/>
+    <linearGradient id="bg" x1="48" y1="48" x2="464" y2="464" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="154" y1="154" x2="358" y2="358" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#A78BFA"/>
     </linearGradient>
   </defs>
-  <!-- Shield base -->
-  <path d="M50 5 L90 20 L90 50 Q90 80 50 95 Q10 80 10 50 L10 20 Z" fill="url(#guard)" stroke="#047857" stroke-width="2"/>
-  <!-- Signal waves -->
-  <path d="M35 45 Q50 35 65 45" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-  <path d="M40 55 Q50 48 60 55" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-  <path d="M45 65 Q50 60 55 65" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-  <!-- Check mark -->
-  <circle cx="50" cy="72" r="8" fill="#fff"/>
-  <path d="M46 72 L49 75 L55 68" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="48" y="48" width="416" height="416" rx="92" fill="url(#bg)"/>
+  <path d="M256 114L356 150V236C356 314 315 369 256 398C197 369 156 314 156 236V150L256 114Z" stroke="url(#accent)" stroke-width="14" fill="#0EA5E91A"/>
+  <ellipse cx="256" cy="246" rx="84" ry="54" fill="#0B1220" stroke="#67E8F9" stroke-width="11"/>
+  <circle cx="256" cy="246" r="19" fill="#22D3EE"/>
+  <path d="M160 308H206L226 272L246 320L274 236L296 286H352" stroke="url(#accent)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
