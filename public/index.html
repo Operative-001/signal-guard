@@ -1,0 +1,12 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Signal Guard Queue</title></head>
+<body>
+  <h1>Signal Guard Reviewer Queue</h1>
+  <p>Use API endpoints for actions. Quick queue snapshot below:</p>
+  <pre id="out">Loading...</pre>
+  <script>
+    fetch('/queue').then(r=>r.json()).then(d=>{
+      document.getElementById('out').textContent = JSON.stringify(d,null,2)
+    }).catch(e=>document.getElementById('out').textContent = String(e));
+  </script>
+</body></html>
